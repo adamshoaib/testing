@@ -17,7 +17,7 @@ function App() {
   // }, []);
   const [sessions, setSessions] = useState("");
 
-  const TAB_ID = Math.random().toString(10) + new Date();
+  const TAB_ID = Math.random().toString(36).substring(2, 15);
 
   useEffect(() => {
     const openTabs = JSON.parse(localStorage.getItem("openTabs") || "[]");
