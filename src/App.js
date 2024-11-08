@@ -17,9 +17,10 @@ function App() {
   // }, []);
   const [sessions, setSessions] = useState("");
 
-  const TAB_ID = Math.random().toString(36).substring(2, 15);
+  const TAB_ID = Math.random().toString(36).substring(2, 15); // unique ID for each tab
 
   useEffect(() => {
+    // Add this tab to open tabs in localStorage
     const openTabs = JSON.parse(localStorage.getItem("openTabs") || "[]");
     localStorage.setItem("openTabs", JSON.stringify([...openTabs, TAB_ID]));
 
@@ -39,7 +40,7 @@ function App() {
 
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
-      // handleBeforeUnload();
+      // handleBeforeUnload(); // Ensure this runs when React component unmounts
     };
   }, []);
 
